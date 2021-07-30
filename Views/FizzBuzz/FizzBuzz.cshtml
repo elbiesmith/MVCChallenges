@@ -1,0 +1,141 @@
+﻿@using MVCChallenges.Models
+@model FizzBuzzModel
+
+<div class="row">
+    <div class="col me-2">
+        <div class="row">
+            <h4 class="text-decaf border-bottom border-2 border-bee">
+                FizzBuzzed
+            </h4>
+            <p>
+                Write a short program that prints each number from 1 to 100 on a new line. For each
+                multiple of 3, print "Fizz" instead of the number. For each multiple of 5, print "Buzz"
+                instead of the number. For numbers which are multiples of both 3 and 5, print "FizzBuzz"
+                instead of the number.
+            </p>
+            <p></p>
+        </div>
+        <div class="row">
+            <h3 class="text-decaf border-bottom border-bee border-2">Instructions</h3>
+            <p>
+                Enter two numbers into the Number Fields and press the button. The <strong>FIRST</strong>
+                number will
+                represent our Fizz Value. The <strong>SECOND</strong> number will represent our Buzz
+                Value. By Default, the
+                values are set to 3 and 5 respectively.
+            </p>
+            <p>
+                Negative numbers are automatically excluded.
+            </p>
+        </div>
+        <div class="row">
+            <h3 class="text-decaf border-bottom border-bee border-2">Advanced</h3>
+            <p>
+                By default, our range is the numbers 1 - 100. If you would like to set a custom range, enter the starting value
+                and the ending value in the advanced section.  <strong>NOTE: </strong>If your start number is larger than your ending number,
+                the values will be swappped.
+            </p>
+            <p>Negative numbers are handled, and will be displayed using the advanced option.</p>
+        </div>
+    </div>
+
+    <div class="col-7 border-start border-2">
+        <div>
+            <form asp-action="FizzBuzz" asp-controller="FizzBuzz">
+
+
+                <label class="form-label">Fizz Value</label>
+                <input type="number" class="form-control" name="fizzValue" value="3" required />
+                <label class="form-label">Buzz Value</label>
+                <input type="number" class="form-control" name="buzzValue" value="5" required />
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Custom Range
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <label class="form-label">Start Value</label>
+                                <input type="number" class="form-control" name="startValue" value="1" required />
+                                <label class="form-label">End Value</label>
+                                <input type="number" class="form-control" name="endValue" value="100" required />
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <button type="submit" class="btn btn-dark mt-2">FizzBuzz</button>
+            </form>
+        </div>
+
+
+        <h5 class="mt-2 border-bottom border-2">FizzBuzz Results</h5>
+
+        <table class="table table-striped mt-2">
+            <tbody>
+
+                @if (Model.Results.Count % 5 == 0)
+                {
+                    for (int i = 0; i < Model.Results.Count; i += 5)
+                    {
+                        <tr>
+                            <td>@Model.Results[i]</td>
+                            <td>@Model.Results[i + 1]</td>
+                            <td>@Model.Results[i + 2]</td>
+                            <td>@Model.Results[i + 3]</td>
+                            <td>@Model.Results[i + 4]</td>
+                        </tr>
+                    }
+                }
+                else if (Model.Results.Count % 4 == 0)
+                {
+                    for (int i = 0; i < Model.Results.Count; i += 4)
+                    {
+                        <tr>
+                            <td>@Model.Results[i]</td>
+                            <td>@Model.Results[i + 1]</td>
+                            <td>@Model.Results[i + 2]</td>
+                            <td>@Model.Results[i + 3]</td>
+                        </tr>
+                    }
+                }
+                else if (Model.Results.Count % 3 == 0)
+                {
+                    for (int i = 0; i < Model.Results.Count; i += 3)
+                    {
+                        <tr>
+                            <td>@Model.Results[i]</td>
+                            <td>@Model.Results[i + 1]</td>
+                            <td>@Model.Results[i + 2]</td>
+                        </tr>
+                    }
+                }
+                else if (Model.Results.Count % 2 == 0)
+                {
+                    for (int i = 0; i < Model.Results.Count; i += 2)
+                    {
+                        <tr>
+                            <td>@Model.Results[i]</td>
+                            <td>@Model.Results[i + 1]</td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    @foreach (var item in Model.Results)
+                    {
+                        <tr><td><p>@item</p></td></tr>
+                    }
+                }
+            </tbody>
+        </table>
+
+
+
+    </div>
+</div>
+<div>
+    
+</div>

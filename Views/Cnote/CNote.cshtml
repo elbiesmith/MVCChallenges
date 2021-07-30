@@ -1,0 +1,62 @@
+﻿@using MVCChallenges.Models
+@model CNoteModel;
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="row">
+
+    <div class="col">
+        <h3>C-Note App</h3>
+        <p>
+            Count money one loop at a time. A javascript coding exercise using loops. Write a program
+            the
+            displays the numbers from 0 to 100. Display the even numbers in <strong>BOLD</strong>.
+        </p>
+        <div class="row">
+            <h5 class="border-bottom border-2">Instructions</h5>
+            <p>Enter a starting value and a ending value. Press the button and the values will appear.</p>
+        </div>
+    </div>
+    <div class="col">
+        <div class="row">
+            <form asp-controller="Apps" asp-action="CNote" method="post">
+                <label class="form-label">Enter Starting Value</label>
+                <input type="number" class="form-control" name="startValue" value="0" />
+                <label class="form-label">Enter Ending Value</label>
+
+                <input type="number" class="form-control" name="endValue" value="100" />
+                <button type="submit" class="btn btn-primary my-2" asp-action="CNote" asp-controller="CNote">Click Me!</button>
+            </form>
+        </div>
+        <div class="row">
+            <h5>Results</h5>
+            <div class="col">
+                <table class="table table-striped">
+                    <tbody>
+                        @foreach (var item in Model.Numbers)
+                        {
+                            if (item % 2 == 0)
+                            {
+                                <tr>
+                                    <td>
+                                        <p class="text-danger">@item</p>
+                                    </td>
+                                </tr>
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td>
+                                        <p class="text-success">@item</p>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

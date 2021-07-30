@@ -1,0 +1,64 @@
+﻿@using MVCChallenges.Models
+@model DecafFacedModel
+
+<div class="row">
+    <div class="col">
+        <div class="row">
+            <h5 class="text-decaf border-bottom border-2 border-decaf">Decaf Faced: Reverse-A-String</h5>
+            <p>
+                Lets put a new spin on the old reverse a string. Take an input word and reverse it. Write to
+                the page whether or not it is a palindrome.
+            </p>
+            <p>
+                A Palindrome is a word, phrase, or sequence that reads the same backward as forward.
+                Write a program the checks if the phrase entered is a palindrome.
+            </p>
+        </div>
+        <div class="row">
+            <h3 class="text-decaf border-bottom border-decaf border-2">Instructions</h3>
+            <p>Enter a word, or words, into the box and press the button, results will appear on screen.</p>
+        </div>
+        <div class='row'>
+            <h3 class="text-decaf border-bottom border-decaf border-2">Sample Palindromes</h3>
+            <div>
+                <p>Decaf Faced</p>
+                <p>Faced Decaf</p>
+                <p>Taco cat</p>
+                <p>A man, a plan, a canal--Panama!</p>
+                <p>
+                    Are we not pure? “No, sir!” Panama’s moody Noriega brags. “It is garbage!” Irony dooms a
+                    man—a prisoner up to new era.
+                </p>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-6  ms-3 border-start border-2">
+        <form asp-action="DecafFaced" asp-controller="DecafFaced">
+            <label class="form-label">Enter a Word</label>
+            <input type="text" class="form-control" name="startWord" required />
+            <button class="btn btn-dark mt-2" type="submit">Check for Palindrome</button>
+        </form>
+
+        <div class="card mt-2">
+            <div class="card-body">
+                <p>Your Word was: @Model.StartWord</p>
+                <p>Your Word Reversed: @Model.ReversedWord</p>
+                @if (Model.IsPalindrome)
+                {
+                    <p>Your word <strong>IS</strong> a <strong class="text-success">Palindrome!</strong></p>
+                }
+                else
+                {
+                    <p>Your word is <strong>NOT</strong> a <span class="text-danger">Palindrome</span>.</p>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-2">
+    <div class="col">
+        
+    </div>
+</div>

@@ -1,0 +1,115 @@
+﻿@model MVCChallenges.Models.SunsetRidgeModel;
+
+<div class="row">
+    <div class="col-6 border-end border-2 p-4">
+        <div class="row">
+
+            <h3 class="border-bottom">Sunset Ridge: A coding challenge.</h3>
+            <p>
+                An array of mountains is facing the sun. The
+                heights of each mountain from West to East is
+                given in an integer array. You have to tell which
+                mountain will be able to see the sunset.
+                Write a program that prints how many mountains
+                and which mountains will be able to see the
+                Sunset given the Array [3, 2, 4, 7, 6, 9].
+            </p>
+            <h3 class="border-bottom">Instructions</h3>
+            <p>
+                If you just want to use the default array, click the Check Array Button.
+                For a custom array of ANY length, input your
+                numbers into the input box. Then either click Add or press enter to add
+                your number to the array.
+            </p>
+
+            <p>
+                Reset will clear the whole array.
+            </p>
+        </div>
+    </div>
+
+    <div class="col">
+        <h3>Default Data: [3, 2, 4, 7, 6, 9]</h3>
+        <h4>Custom Data: [<span id="num"></span>]</h4>
+        <p>Use the input below to add items to your custom Data</p>
+        <form id="addForm">
+            <label class="form-label">Add Item</label>
+            <input type="number" class="form-control mb-2" id="addNumber" />
+            <button type="button" class="btn btn-dark" id="addBtn">Add</button>
+            <button type="button" class="btn btn-danger float-end" id="resetBtn">Reset</button>
+        </form>
+        <form asp-action="SunsetRidge" asp-controller="SunsetRidge">
+            <textarea class="form-text form-control visually-hidden" id="textNumbers" name="textNumber" readonly></textarea>
+            <button type="submit" class="btn btn-primary btn-size mt-3">Submit</button>
+        </form>
+    </div>
+    <span id="popModal" class="visually-hidden">@Model.PopModal.ToString()</span>
+</div>
+
+<!-- Modal -->
+<div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Sunset Ridge</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body text-center">
+                <img src="/img/giphy.gif" class='img-fluid rounded' id="robot" alt="">
+                <p class="mb-1">
+                    Given the array of mountains:
+
+                    @if (Model.CustomData.Count == 0)
+                    {
+                        <h1 id="numberDisplay" class="pt-0">[@foreach (var item in Model.DefaultData) {
+                            <span>@item, </span>
+                            }]</h1>
+                    }
+                    else
+                    {
+                <h1 id="numberDisplay" class="pt-0">
+                    [@foreach (var item in Model.CustomData)
+                    {
+                        <span>@item, </span>
+                    }]
+                </h1>
+
+                    }
+
+
+
+                </p>
+                <div class="card bg-light">
+                    <div class="card-body">
+                        <h5>
+                            These Numbers Live in the Light: [
+                            @foreach (var item in Model.LightData)
+                            {
+                                <span> @item, </span>
+                            }
+
+                            ]
+                        </h5>
+                    </div>
+                </div>
+                <div class="card bg-dark text-light mt-2">
+                    <div class="card-body">
+                        <h5>
+                            These Numbers Live in the Dark: [
+                            @foreach (var item in Model.DarkData)
+                            {
+                                <span> @item, </span>
+                            }
+
+                            ]
+                        </h5>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
