@@ -2,20 +2,19 @@
     ViewData["Title"] = "Home Page";
 }
 
-
-
 <div class="card mb-2 bg-light">
     <div class="card-body">
         <h5 class="card-title display-4 text-center">MVC Projects</h5>
         <h6 class="card-subtitle mb-2 text-muted text-center">Javascript projects writen in C#</h6>
-        <p class="card-text">Learning to write web applications starts with the front-end and moves toward the back end.
-        I started with HTML and CSS, moved to Javascript and now I'm working in a full stack environment with C# and MVC.
-        Below are the challenges I wrote in Javascript, updated to use MVC.</p>
+        <p class="card-text">
+            Learning to write web applications starts with the front-end and moves toward the back end.
+            I started with HTML and CSS, moved to Javascript and now I'm working in a full stack environment with C# and MVC.
+            Below are the challenges I wrote in Javascript, updated to use MVC.
+        </p>
         <a href="http://elbie.me" target="_blank" class="card-link">Portfolio</a>
         <a href="https://github.com/elbiesmith/MVCChallenges" target="_blank" class="card-link">Github Repo</a>
     </div>
 </div>
-
 
 <div class="row mb-2 text-center">
     <div class="col">
@@ -69,24 +68,32 @@
             </div>
         </div>
     </div>
-    @*<div class="col">
-            <div class="card bg-light" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="card-link btn btn-primary">Card link</a>
+    <div class="col text-center">
+        <div class="card bg-light" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Mortgage Master</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Coding Challenge in C#</h6>
+                <p class="card-text rounded text-center"><img src="~/img/mortgage.jpg" style="height: 9rem" class="img-fluid rounded" /></p>
+                <div class="d-grid gap-2">
+                    <a class="card-link btn btn-primary" asp-action="App" asp-controller="Loan">Visit App</a>
                 </div>
             </div>
         </div>
-        <div class="col">
-            <div class="card bg-light" style="width: 18rem;">
+    </div>
+    
+    <div class="col">
+            @*<div class="card bg-light" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">Card title</h5>
                     <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     <a href="#" class="card-link btn btn-primary">Card link</a>
                 </div>
-            </div>
-        </div>*@
+            </div>*@
+        </div>
 </div>
+
+<span class="visually-hidden" id="popModal">False</span>
+<button id="resetBtn" class="visually-hidden">reset</button>
+<button id="addBtn" class="visually-hidden">reset</button>
+<input id="addNumber" type="text" class="visually-hidden" />
