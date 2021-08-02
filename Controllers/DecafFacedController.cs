@@ -1,12 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MVCChallenges.Models;
-using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace MVCChallenges.Controllers
 {
@@ -31,6 +28,7 @@ namespace MVCChallenges.Controllers
 
             //char[] charArray = clearText.ToCharArray();
             //Array.Reverse(charArray);
+
             List<char> characters = new();
             for (int i = clearStart.Length - 1; i >= 0; i--)
             {

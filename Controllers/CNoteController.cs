@@ -1,11 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MVCChallenges.Models;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace MVCChallenges.Controllers
 {
@@ -26,6 +22,7 @@ namespace MVCChallenges.Controllers
         }
 
         /* ------- End CNOTE ------ */
+
         private readonly ILogger<CNoteController> _logger;
 
         public CNoteController(ILogger<CNoteController> logger)
